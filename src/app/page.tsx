@@ -14,7 +14,8 @@ export default function Home() {
 
  useEffect(() => {
    const fetchData = async () => {
-     const resp = await fetch('/api/pokemon');
+    const resp = await fetch('https://tsekpw0vd7.execute-api.eu-west-2.amazonaws.com/Prod/pokemon');
+     //const resp = await fetch('/api/pokemon');
      if (resp.ok) {
        const pokemons: PokemonCard[] = (await resp.json()).items;
        console.log(pokemons);

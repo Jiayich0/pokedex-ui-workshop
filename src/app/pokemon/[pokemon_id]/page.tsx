@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Container, Image, Spinner, Row } from 'react-bootstrap';
 import PokemonComponent from './pokemon';
 import PokeNavBar from '@/components/pokeNavBarComp';
+import React from 'react';
 
 
 // This type is used to get the pokemon id from the url path
@@ -32,7 +33,9 @@ export default function PokemonPage({ params }: Params) {
 
    useEffect(() => {
        const fetchData = async () => {
-           const resp = await fetch('/api/pokemon/' + pokemon_id);
+            const resp = await fetch(`https://tsekpw0vd7.execute-api.eu-west-2.amazonaws.com/Prod/pokemon/${pokemon_id}`);
+
+           //const resp = await fetch('/api/pokemon/' + pokemon_id);
            if (resp.ok) {
                const pokemon: Pokemon = await resp.json();
                console.log(pokemon);
